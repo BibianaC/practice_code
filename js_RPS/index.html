@@ -7,18 +7,20 @@
 
   <body>
     <h1>Rock Paper Scissors</h1>
-    
+
     <div class='choices'>
-      <img src="images/rock6.png">
-      <img src="images/paper.png">
-      <img src="images/scissors.png">
+      <img src="images/rock6.png" data-pick='rock'>
+      <img src="images/paper.png" data-pick='paper'>
+      <img src="images/scissors.png" data-pick='scissors'>
     </div>
 
-    <h2 id="results"></h2>
+    <ul id="results"></ul>
 
-    <script src='lib/Player.js'></script>
-    <script src='lib/Game.js'></script>
+    <script src='js/Player.js'></script>
+    <script src='js/Game.js'></script>
     <script src='http://code.jquery.com/jquery-2.1.1.min.js'></script>
+    <script src='js/interface.js'></script>
+
   </body>
 </html>
     
