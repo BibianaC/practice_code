@@ -24,6 +24,10 @@ if (Meteor.isClient) {
       // Prevent default form submit
       return false;
     }
+
+    "change .hide-completed input": function (event) {
+      Session.set("hideCompleted", event.target.checked);
+    }
   });
 
   Template.task.events({
