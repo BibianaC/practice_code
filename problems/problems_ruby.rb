@@ -50,11 +50,54 @@ fib = Enumerator.new do |y|
   end
 end
 
-puts fib.take_while{|i| i < 4000000}
-        .select{|x| x.even?}
-        .inject(:+)
+fib.take_while{|i| i < 4000000}
+    .select{|x| x.even?}
+    .inject(:+)
 
 
+# Problem 3
+# Largest prime factor
+# The prime factors of 13195 are 5, 7, 13 and 29.
+# What is the largest prime factor of the number 600851475143 ?
+
+def isPrime candidate
+  for i in 2..candidate/2
+    isPrimeFactor = true
+    if (candidate%i == 0)
+      isPrimeFactor = false
+      break;
+    end
+  end
+  return isPrimeFactor
+end
+
+num = 600851475143
+limit = num / 2
+possibleFactor = 2
+factors = []
+maxFactorFound = false
+while (possibleFactor < limit && !maxFactorFound)
+  if ((num  % possibleFactor) == 0)
+    quotient = num / possibleFactor;
+    if (isPrime(quotient))
+      maxFactor = quotient;
+      maxFactorFound = true;
+    end
+    factors.push possibleFactor
+    limit = quotient
+  end
+  possibleFactor += 1
+end
+if (!maxFactorFound)
+  factors = factors.reverse
+  factors.each { |factor|
+    if (isPrime(factor))
+      maxFactor = factor
+      break
+    end
+  }
+end
+puts "Max factor for #{num} is #{maxFactor}"
 
 
 
