@@ -17,7 +17,7 @@ class Account
   end
 
   def debit(amount)
-    @queue.write("+#{amount}")
+    @queue.write("-#{amount}")
   end
 end
 
